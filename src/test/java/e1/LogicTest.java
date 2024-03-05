@@ -9,57 +9,61 @@ public class LogicTest {
 
   @BeforeEach
   void beforeEach(){
-    logics = new LogicsImpl(SIZE, new Pair<Integer,Integer>(2, 1), new Pair<Integer,Integer>(0, 0));
+    logics = new LogicsImpl(SIZE, new PositionImpl(2, 1), new PositionImpl(0, 0));
   }
 
   @Test
   void hasPawnInTheFirstPosition(){
-    assertTrue(logics.hasPawn(2, 1));
+    assertTrue(logics.hasPawn(new PositionImpl(2, 1)));
   }
 
   @Test
   void hasKnightInTheFirstPosition(){
-    assertTrue(logics.hasKnight(0, 0));
+    assertTrue(logics.hasKnight(new PositionImpl(0, 0)));
   }
 
   @Test
   void hasPawnInErrorPosition(){
-    assertFalse(logics.hasPawn(0, 0));
+    assertFalse(logics.hasPawn(new PositionImpl(0, 0)));
   }
 
   @Test
   void hasKnightInErrorPosition(){
-    assertFalse(logics.hasKnight(2, 1));
+    assertFalse(logics.hasKnight(new PositionImpl(2, 1)));
   }
 
   @Test
   void checkIfKnightCanMoveToAWrongNegativePosition(){
-    assertThrows(IndexOutOfBoundsException.class, () -> logics.hit(-1, -1));
+    assertThrows(IndexOutOfBoundsException.class, () -> logics.hit(new PositionImpl(-1, -1)));
   }
 
   @Test
   void checkIfKnightCanMoveToAWrongPosition(){
-    assertFalse(logics.hit(1, 1));
+    final Position position = new PositionImpl(1, 1);
+    logics.hit(position);
+    assertFalse(logics.hasKnight(position));
   }
 
   @Test
   void checkIfKnightCanMoveToTheSamePositionOfThePawn(){
-    assertTrue(logics.hit(2, 1));
+    assertTrue(logics.hit(new PositionImpl(2, 1)));
   }
 
   @Test
   void checkIfKnightCanMoveToRightPosition(){
-    assertFalse(logics.hit(1, 2));
+    final Position position = new PositionImpl(1, 2);
+    logics.hit(position);
+    assertTrue(logics.hasKnight(position));
   }
 
   @Test
   void checkIfKnightCanMoveToTheSamePositionOfThePawnWithMoreMovements(){
-    logics.hit(1, 2);
-    logics.hit(2, 0);
-    logics.hit(0, 1);
-    logics.hit(2, 2);
-    logics.hit(1, 0);
-    logics.hit(0, 2);
-    assertTrue(logics.hit(2, 1));
+    logics.hit(new PositionImpl(1, 2));
+    logics.hit(new PositionImpl(2, 0));
+    logics.hit(new PositionImpl(0, 1));
+    logics.hit(new PositionImpl(2, 2));
+    logics.hit(new PositionImpl(1, 0));
+    logics.hit(new PositionImpl(0, 2));
+    assertTrue(logics.hit(new PositionImpl(2, 1)));
   }
 }

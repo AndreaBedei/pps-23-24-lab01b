@@ -1,27 +1,25 @@
 package e1;
 
 public interface Logics{
-    
-    /**
-     * attempt to move Knight on position row,col, if possible
+
+   /**
+     * attempt to move Knight on position if possible
      * 
-     * @param row
-     * @param col
+     * @param position The position
      * @return whether the pawn has been hit 
      */
-    boolean hit(int row, int col);
+    boolean hit(Position position);
     
     /**
-     * @param row
-     * @param col
-     * @return whether position row,col has the knight
+     * @param position The position
+     * @return whether position has the knight
      */
-    boolean hasKnight(int row, int col);
+    boolean hasKnight(Position position);
     
     /**
-     * @param row
-     * @param col
-     * @return whether position row,col has the pawn
+     * @param position
+     * @return whether position has the pawn
      */
-    boolean hasPawn(int row, int col);
+    boolean hasPawn(Position position);
+    
 }
