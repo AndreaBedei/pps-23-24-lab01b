@@ -1,4 +1,6 @@
-package e1;
+package e1.Character;
+
+import e1.Utility.Position;
 
 public class Pawn extends AbstractCharacter{
     

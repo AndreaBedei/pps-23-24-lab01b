@@ -1,5 +1,9 @@
 package e1;
 import org.junit.jupiter.api.*;
+
+import e1.Utility.Position;
+import e1.Utility.PositionImpl;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 

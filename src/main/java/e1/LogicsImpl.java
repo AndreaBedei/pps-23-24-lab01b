@@ -2,6 +2,12 @@ package e1;
 
 import java.util.*;
 
+import e1.Character.Character;
+import e1.Character.Knight;
+import e1.Character.Pawn;
+import e1.Utility.Position;
+import e1.Utility.PositionImpl;
+
 public class LogicsImpl implements Logics {
 	
 	private final Character pawn;

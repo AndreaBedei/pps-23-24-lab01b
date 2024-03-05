@@ -1,6 +1,10 @@
 package e1;
 
 import javax.swing.*;
+
+import e1.Utility.Position;
+import e1.Utility.PositionImpl;
+
 import java.util.*;
 import java.util.Map.Entry;
 import java.awt.*;

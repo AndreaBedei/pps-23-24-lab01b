@@ -6,6 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import e1.Character.Character;
+import e1.Character.Knight;
+import e1.Character.Pawn;
+import e1.Utility.Position;
+import e1.Utility.PositionImpl;
+
 public class CharacterTest {
     
     Character pawn;

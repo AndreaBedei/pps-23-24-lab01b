@@ -1,5 +1,7 @@
 package e1;
 
+import e1.Utility.Position;
+
 public interface Logics{
 
    /**
